@@ -1,0 +1,32 @@
+package main
+
+templ Page() {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Node/Express + Datastar Example</title>
+			<script type="module" defer src="https://cdn.jsdelivr.net/npm/@sudodevnull/datastar"></script>
+		</head>
+		<body>
+			<h2>Node/Express + Datastar Example</h2>
+			<main class="container" id="main" data-store='{ input: "", show: false }'></main>
+			<input type="text" placeholder="Type here!" data-model="input"/>
+			<button data-on-click="$$put('/put')">Send State</button>
+			<div id="output"></div>
+			<button data-on-click="$$get('/get')">Get Backend State</button>
+			<div id="output2"></div>
+			<button data-on-click="$show=!$show">Toggle</button>
+			<div data-show="$show">
+				<span>Hello From Datastar!</span>
+			</div>
+			<div>
+				<span>Feed from server: </span>
+				<span id="feed" data-on-load="$$get('/feed')"></span>
+			</div>
+		</body>
+	</html>
+}
+
+templ FeedFragment(randomHex string) {
+	<span id="feed">{ randomHex }</span>
+}

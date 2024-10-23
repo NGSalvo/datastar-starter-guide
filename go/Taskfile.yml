@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build Go application
+    cmds:
+      - air -c ./.air.toml & templ generate -watch -proxy="http://localhost:4000"
